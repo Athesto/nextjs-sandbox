@@ -62,7 +62,7 @@ class RedirectionsImpl implements Redirections {
 
 const redirections = new RedirectionsImpl({
   email: getEnvOrError("GOOGLE_CLOUD_API_EMAIL"),
-  key: getEnvOrError("GOOGLE_CLOUD_API_SECRET"),
+  key: Buffer.from(getEnvOrError("GOOGLE_CLOUD_API_SECRET_BASE64"), "base64").toString("ascii"),
   spreadsheetId: "1SDIUeZ00u_N_J5Ahc4gz-psEoYVQcfHB38Iv9Pc-B2k",
 });
 
